@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Shortly</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="nav">
+      <div class="navbar">
+        <a href="index.html" class="navbar__brand">
+          <img src="images/logo.svg" alt="Shortly" />
+        </a>
+        <div class="navbar__links">
+          <a href="#" class="navbar__link">Features</a>
+          <a href="#" class="navbar__link">Pricing</a>
+          <a href="#" class="navbar__link">Resources</a>
+          <div class="pull-right">
+            <a href="#" class="navbar__link">Login</a>
+            <a href="#" class="navbar__link btn-solid">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+    <!-- Main -->
+    <main class="main">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="banner">
+          <h1 class="banner__heading">More than just shorter links</h1>
+          <p class="banner__text">
+            Build your brand's recognition and get detailed insights on how your
+            links are performing
+          </p>
+          <a href="#" class="banner__btn btn-solid">Get Started</a>
+        </div>
+        <div class="hero__image">
+          <img src="images/illustration-working.svg" class="hero__image-src" />
+        </div>
+      </section>
+      <section class="shorten">
+        <form onsubmit="" class="form">
+          <input
+            type="text"
+            class="form__input form__input--error"
+            placeholder="Enter URL here..."
+          />
+          <span class="form__error hide">Please add a link</span>
+          <input
+            type="submit"
+            value="Shorten It!"
+            class="btn-solid-secondary form__btn"
+          />
+        </form>
+      </section>
+      <section class="results">
+        <div class="result">
+          <p class="result__input">
+            https://adriansajjan.github.io/Insure-Landing-Pages
+          </p>
+          <p class="result__output">
+            https://rel.ink/sasd3a
+          </p>
+          <button class="result__copy">Copy</button>
+        </div>
+        <div class="result">
+          <p class="result__input">
+            https://adriansajjan.github.io/Insure-Landing-Pages
+          </p>
+          <p class="result__output">
+            https://rel.ink/sasd3a
+          </p>
+          <button class="result__copy">Copy</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
