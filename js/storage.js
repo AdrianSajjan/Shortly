@@ -1,5 +1,6 @@
 const InitializeResult = () => {
   //window.localStorage.removeItem("previous-results");
+  if (typeof Storage == "undefined") return;
   let previousResults = window.localStorage.getItem("previous-results");
   if (previousResults != null) {
     previousResults = JSON.parse(previousResults);
@@ -20,7 +21,10 @@ const InitializeResult = () => {
 
 const IndexExists = index => {
   let indexFound = false;
-  if (window.localStorage.getItem("previous-results") != null) {
+  if (
+    typeof Storage != "undefined" &&
+    window.localStorage.getItem("previous-results") != null
+  ) {
     allResults = JSON.parse(window.localStorage.getItem("previous-results"));
     allResults.forEach(result => {
       if (result.url == index) indexFound = true;
@@ -31,12 +35,14 @@ const IndexExists = index => {
 };
 
 const StoreResults = result => {
-  allResults = new Array();
-  let previousResults = window.localStorage.getItem("previous-results");
-  if (previousResults != null) allResults = JSON.parse(previousResults);
-  allResults.push(result);
-  console.log(allResults);
-  window.localStorage.setItem("previous-results", JSON.stringify(allResults));
+  if (typeof Storage != "undefined") {
+    allResults = new Array();
+    let previousResults = window.localStorage.getItem("previous-results");
+    if (previousResults != null) allResults = JSON.parse(previousResults);
+    allResults.push(result);
+    console.log(allResults);
+    window.localStorage.setItem("previous-results", JSON.stringify(allResults));
+  }
 };
 
 InitializeResult();
