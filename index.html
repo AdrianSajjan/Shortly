@@ -12,16 +12,18 @@
   </head>
   <body>
     <!-- Navbar -->
+    <div class="black-overlay hide"></div>
     <nav class="nav">
       <div class="navbar">
         <a href="index.html" class="navbar__brand">
           <img src="images/logo.svg" alt="Shortly" />
         </a>
+        <div class="navbar__collapse"></div>
         <div class="navbar__links">
           <a href="#" class="navbar__link">Features</a>
           <a href="#" class="navbar__link">Pricing</a>
           <a href="#" class="navbar__link">Resources</a>
-          <div class="pull-right">
+          <div class="nav-pull-right">
             <a href="#" class="navbar__link">Login</a>
             <a href="#" class="navbar__link btn-solid">Sign Up</a>
           </div>
@@ -45,11 +47,13 @@
           <img src="images/illustration-working.svg" class="hero__image-src" />
         </div>
       </section>
+      <!-- End of Hero -->
+      <!-- Shorten -->
       <section class="shorten">
         <form onsubmit="" class="form">
           <input
             type="text"
-            class="form__input form__input--error"
+            class="form__input"
             placeholder="Enter URL here..."
           />
           <span class="form__error hide">Please add a link</span>
@@ -60,6 +64,8 @@
           />
         </form>
       </section>
+      <!-- End of Shorten -->
+      <!-- Results -->
       <section class="results">
         <div class="result">
           <p class="result__input">
@@ -80,6 +86,116 @@
           <button class="result__copy">Copy</button>
         </div>
       </section>
+      <!-- End of Results -->
+      <!-- Stats -->
+      <section class="stats">
+        <div class="stats__container">
+          <h1 class="stats__heading">Advanced Statistics</h1>
+          <p class="stats__text">
+            Track how your links are performing across the web with<br />our
+            advanced statistics dashboard.
+          </p>
+          <div class="stats__cards">
+            <!-- Single Card-->
+            <div class="card">
+              <img src="images/icon-brand-recognition.svg" class="card__img" />
+              <h1 class="card__title">Brand Recognition</h1>
+              <p class="card__subtitle">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nesciunt consectetur exercitationem vel sunt possimus delectus
+                veniam autem reiciendis impedit nihil.
+              </p>
+            </div>
+            <!-- End of Single Card -->
+            <!-- Single Card-->
+            <div class="card">
+              <img src="images/icon-detailed-records.svg" class="card__img" />
+              <h1 class="card__title">Detailed Records</h1>
+              <p class="card__subtitle">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nesciunt consectetur exercitationem vel sunt possimus delectus
+                veniam autem reiciendis impedit nihil.
+              </p>
+            </div>
+            <!-- End of Single Card -->
+            <!-- Single Card-->
+            <div class="card">
+              <img src="images/icon-fully-customizable.svg" class="card__img" />
+              <h1 class="card__title">Fully Customizable</h1>
+              <p class="card__subtitle">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nesciunt consectetur exercitationem vel sunt possimus delectus
+                veniam autem reiciendis impedit nihil.
+              </p>
+            </div>
+            <!-- End of Single Card -->
+          </div>
+        </div>
+      </section>
+      <!-- End of Stats -->
+      <!-- Boosts -->
+      <section class="boost">
+        <div class="boost__container">
+          <h1 class="boost__heading">Boost your links today</h1>
+          <a href="#" class="btn-solid boost__btn">Get Started</a>
+        </div>
+      </section>
+      <!-- End of Boosts -->
     </main>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__brand">
+        <img
+          src="./images/logo-white.svg"
+          alt="Shortly"
+          class="footer__brand-img"
+        />
+      </div>
+      <div class="footer__nav">
+        <div class="footer__nav-col">
+          <h1 class="footer__col-title">Features</h1>
+          <div class="footer__col-links">
+            <a class="footer__col-link">URL Shortening</a>
+            <a class="footer__col-link">Branded Links</a>
+            <a class="footer__col-link">Analytics</a>
+          </div>
+        </div>
+        <div class="footer__nav-col">
+          <h1 class="footer__col-title">Resources</h1>
+          <div class="footer__col-links">
+            <a class="footer__col-link">Blog</a>
+            <a class="footer__col-link">Developers</a>
+            <a class="footer__col-link">Support</a>
+          </div>
+        </div>
+        <div class="footer__nav-col">
+          <h1 class="footer__col-title">Company</h1>
+          <div class="footer__col-links">
+            <a class="footer__col-link">About</a>
+            <a class="footer__col-link">Our Team</a>
+            <a class="footer__col-link">Contact</a>
+            <a class="footer__col-link">Career</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__social-links">
+        <a href="#" class="footer__social-link">
+          <img src="./images/icon-facebook.svg" />
+        </a>
+        <a href="#" class="footer__social-link">
+          <img src="./images/icon-twitter.svg" />
+        </a>
+        <a href="#" class="footer__social-link">
+          <img src="./images/icon-pinterest.svg" />
+        </a>
+        <a href="#" class="footer__social-link">
+          <img src="./images/icon-instagram.svg" />
+        </a>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Scripts -->
+    <script src="js/hamburger.js"></script>
   </body>
 </html>

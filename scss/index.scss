@@ -49,7 +49,16 @@ input::placeholder {
   display: none !important;
 }
 
-.pull-right {
+.black-overlay {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  z-index: 9;
+  pointer-events: all;
+}
+
+.nav-pull-right {
   margin-left: auto !important;
 }
 
@@ -87,6 +96,7 @@ input::placeholder {
   height: 80px;
   padding: 0 10%;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -101,6 +111,24 @@ input::placeholder {
 
   &__brand {
     margin-top: 10px;
+  }
+
+  &__collapse {
+    width: 30px;
+    height: 30px;
+    background: url("../images/icon-hamburger.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    display: none;
+
+    &--close {
+      background: url("../images/icon-close.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 
   &__links {
@@ -207,6 +235,7 @@ input::placeholder {
     padding: 0.3rem 2rem;
     font-size: 1rem;
     border-radius: 5px;
+    border: 2px solid white;
 
     &::placeholder {
       color: var(--Red);
@@ -284,6 +313,154 @@ input::placeholder {
 }
 /* End of Results */
 
+/* Stats */
+
+.stats {
+  margin-top: 6rem;
+
+  &__container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__text {
+    text-align: center;
+    color: var(--Dark-Violet);
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  &__cards {
+    display: grid;
+    margin-top: 8rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .card {
+    background-color: white;
+    padding: 1rem 2rem 2rem;
+    border-radius: 10px;
+    position: relative;
+
+    &:first-child {
+      transform: translateY(-3rem);
+    }
+
+    &:last-child {
+      transform: translateY(3rem);
+    }
+
+    &__img {
+      height: 60px;
+      width: 60px;
+      padding: 15px;
+      border-radius: 50%;
+      background-color: var(--Very-Dark-Violet);
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: -30px;
+    }
+
+    &__title {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+    }
+
+    &__subtitle {
+      color: var(--Grayish-Violet);
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* End of Stats */
+
+/* Boost */
+
+.boost {
+  margin-top: 7rem;
+  background-color: var(--Dark-Violet);
+  text-align: center;
+
+  &__container {
+    width: 100%;
+    padding: 1.5rem 0;
+    background: url("../images//bg-boost-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__heading {
+    color: white;
+  }
+
+  &__btn {
+    margin-top: 1rem;
+  }
+}
+
+/* End of Boost */
+
+/* Footer  */
+
+.footer {
+  padding: 2rem 10%;
+  display: grid;
+  background-color: var(--Very-Dark-Violet);
+  grid-template-columns: 2fr 5fr 3fr;
+  gap: 2rem;
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    &-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: auto;
+    }
+  }
+
+  &__col {
+    &-title {
+      color: white;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+    &-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &-link {
+      color: var(--Gray);
+      font-size: 0.8rem;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__social-link {
+    margin: 0 0.5rem;
+  }
+}
+
+/* End of Footer */
+
 /* Media Queries */
 
 /* Max Screen Size : 1280px */
@@ -293,11 +470,172 @@ input::placeholder {
   }
 }
 
-/* Max Screen Size : 768px */
-@media screen and (max-width: 768px) {
+/* Max Screen Size : 796px */
+@media screen and (max-width: 796px) {
+  .nav-pull-right {
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1.5px solid white;
+  }
+
   html {
     font-size: 14px;
   }
+
+  .navbar {
+    display: block;
+
+    &__brand {
+      margin-top: 25px;
+    }
+
+    &__collapse {
+      display: block;
+      float: right;
+      margin-top: 25px;
+    }
+
+    &__links {
+      display: none;
+      text-align: center;
+      margin: 25px 0 0;
+      background-color: var(--Dark-Violet);
+      padding: 2rem;
+      border-radius: 10px;
+
+      &--show {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    &__link {
+      display: block;
+      font-size: 1.2rem;
+      color: white;
+      margin: 1rem 0;
+
+      &:hover {
+        color: var(--Gray);
+      }
+    }
+  }
+
+  .hero {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .banner {
+      width: 80%;
+      margin: 4rem auto;
+      text-align: center;
+
+      &__heading {
+        font-size: 2.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      &__btn {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .shorten {
+    .form {
+      grid-template-columns: 1fr;
+      background: url("../images/bg-shorten-mobile.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &__error {
+        top: 45%;
+      }
+
+      &__btn {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  .results {
+    margin-top: -3rem;
+  }
+
+  .result {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+
+    &__input {
+      border-bottom: 1px solid var(--Dark-Violet);
+      padding-bottom: 1rem;
+    }
+  }
+
+  .stats {
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      transform: translateY(0);
+      text-align: center;
+      padding: 2rem 1rem;
+
+      &__img {
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+
+    &__brand {
+      margin: 0 auto;
+    }
+
+    &__nav {
+      grid-template-columns: 1fr;
+
+      &-col {
+        margin-right: auto;
+        margin-top: 2rem;
+        align-items: center;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    &__col {
+      &-links {
+        align-items: center;
+      }
+    }
+
+    &__social-links {
+      margin-top: 1rem;
+      justify-content: center;
+    }
+  }
 }
 
+@media screen and (max-width: 396px) {
+  .form {
+    padding: 1rem;
+    width: 100%;
+
+    &__input {
+      width: 100%;
+    }
+  }
+}
 /* End of Media Queries */
