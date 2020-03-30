@@ -40,7 +40,6 @@ const StoreResults = result => {
     let previousResults = window.localStorage.getItem("previous-results");
     if (previousResults != null) allResults = JSON.parse(previousResults);
     allResults.push(result);
-    console.log(allResults);
     window.localStorage.setItem("previous-results", JSON.stringify(allResults));
   }
 };
