@@ -645,9 +645,14 @@ input::placeholder {
   .shorten .form {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+    padding: 1rem;
+    width: 100%;
     background: url("../images/bg-shorten-mobile.svg");
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  .shorten .form__input {
+    width: 100%;
   }
   .shorten .form__error {
     top: 45%;
@@ -713,16 +718,6 @@ input::placeholder {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .form {
-    padding: 1rem;
-    width: 100%;
-  }
-  .form__input {
-    width: 100%;
   }
 }
 

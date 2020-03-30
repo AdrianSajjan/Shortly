@@ -549,9 +549,15 @@ input::placeholder {
   .shorten {
     .form {
       grid-template-columns: 1fr;
+      padding: 1rem;
+      width: 100%;
       background: url("../images/bg-shorten-mobile.svg");
       background-repeat: no-repeat;
       background-size: cover;
+
+      &__input {
+        width: 100%;
+      }
 
       &__error {
         top: 45%;
@@ -629,13 +635,5 @@ input::placeholder {
 }
 
 @media screen and (max-width: 576px) {
-  .form {
-    padding: 1rem;
-    width: 100%;
-
-    &__input {
-      width: 100%;
-    }
-  }
 }
 /* End of Media Queries */
