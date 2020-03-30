@@ -9,8 +9,15 @@ const baseAPI = "https://rel.ink/api/links/";
 const websiteRegex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/gi;
 
 let inputURL = "";
+let canSubmitForm = true;
+
+const ResetFormError = () => {
+  formError.classList.add("hide");
+  formError.innerHTML = "";
+};
 
 const AjaxCall = (url, methodType, body) => {
+  canSubmitForm = false;
   return new Promise((resolve, reject) => {
     const xHTTP = new XMLHttpRequest();
     xHTTP.open(methodType, url, true);
@@ -31,6 +38,7 @@ const AjaxCall = (url, methodType, body) => {
 };
 
 const ShowResult = response => {
+  canSubmitForm = true;
   const hashID = response.hashid;
   const finalURL = `${baseURL}/${hashID}`;
   const userURL = response.url;
@@ -42,10 +50,23 @@ const ShowResult = response => {
     <p class="result__output">
     ${finalURL}
     </p>
-    <button class="result__copy">Copy</button>
+    <button class="result__copy" onclick="HandleCopy(this)">Copy</button>
   </div>`;
 
   resultSection.innerHTML += innerHTML;
+
+  StoreResults(response);
+};
+
+const HandleCopy = event => {
+  targetText = event.previousElementSibling.innerHTML;
+  let tempInput = document.createElement("Input");
+  document.body.appendChild(tempInput);
+  tempInput.value = targetText;
+  tempInput.select();
+  document.execCommand("Copy");
+  document.body.removeChild(tempInput);
+  alert("Copied!");
 };
 
 const HandleError = error => {
@@ -56,6 +77,14 @@ const HandleError = error => {
 
 const HandleSubmit = event => {
   event.preventDefault();
+  if (!canSubmitForm) {
+    formError.classList.remove("hide");
+    formError.innerHTML = "Previous Result being processed!";
+    return;
+  } else {
+    ResetFormError();
+  }
+
   if (inputURL.length == 0) {
     formError.classList.remove("hide");
     formError.innerHTML = "Please add a link.";
@@ -63,8 +92,7 @@ const HandleSubmit = event => {
     formError.classList.remove("hide");
     formError.innerHTML = "Please add a valid URL.";
   } else {
-    formError.classList.add("hide");
-    formError.innerHTML = "";
+    ResetFormError();
 
     if (!inputURL.includes("https://")) {
       if (inputURL.includes("http://"))
@@ -72,13 +100,17 @@ const HandleSubmit = event => {
       else inputURL = `https://${inputURL}`;
     }
 
-    const body_raw = {
-      url: inputURL
-    };
-
-    const body = JSON.stringify(body_raw);
-
-    AjaxCall(baseAPI, "POST", body).then(ShowResult, HandleError);
+    if (IndexExists(inputURL)) {
+      formError.classList.remove("hide");
+      formError.innerHTML = "URL already exists";
+    } else {
+      ResetFormError();
+      const body_raw = {
+        url: inputURL
+      };
+      const body = JSON.stringify(body_raw);
+      AjaxCall(baseAPI, "POST", body).then(ShowResult, HandleError);
+    }
   }
 };
 
