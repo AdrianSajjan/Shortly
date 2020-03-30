@@ -20,10 +20,7 @@ const InitializeResult = () => {
 
 const IndexExists = index => {
   let indexFound = false;
-  if (
-    typeof Storage != "undefined" &&
-    window.localStorage.getItem("previous-results") != null
-  ) {
+  if (window.localStorage.getItem("previous-results") != null) {
     allResults = JSON.parse(window.localStorage.getItem("previous-results"));
     allResults.forEach(result => {
       if (result.url == index) indexFound = true;
@@ -34,14 +31,12 @@ const IndexExists = index => {
 };
 
 const StoreResults = result => {
-  if (typeof Storage != "undefined") {
-    allResults = new Array();
-    let previousResults = window.localStorage.getItem("previous-results");
-    if (previousResults != null) allResults = JSON.parse(previousResults);
-    allResults.push(result);
-    console.log(allResults);
-    window.localStorage.setItem("previous-results", JSON.stringify(allResults));
-  }
+  allResults = new Array();
+  let previousResults = window.localStorage.getItem("previous-results");
+  if (previousResults != null) allResults = JSON.parse(previousResults);
+  allResults.push(result);
+  console.log(allResults);
+  window.localStorage.setItem("previous-results", JSON.stringify(allResults));
 };
 
 InitializeResult();
