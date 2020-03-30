@@ -656,6 +656,7 @@ input::placeholder {
   }
   .shorten .form__error {
     top: 45%;
+    left: 1.2rem;
   }
   .shorten .form__btn {
     margin-top: 1.5rem;
